@@ -1,7 +1,7 @@
 # Command line activity
 
 ## Download file 
-1. Download the Loki_protein.fasta  
+1. Download the [Loki_protein.fasta](https://raw.githubusercontent.com/stechtmann/BL2700/master/data/Loki_protein.fasta)  
 1. Make a folder on your Desktop called BL2700_data
 1. Place the Loki_protein.fasta in the BL2700_data folder.
 
