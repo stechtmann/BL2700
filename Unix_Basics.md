@@ -7,7 +7,16 @@
 1. Make a folder on your Desktop called BL2700_data
 1. Place the Loki_protein.fasta in the BL2700_data folder.
 
-## Log on to collossus using putty
+** If using your own computer **
+1. Log onto colossus
+```{BASH}
+cd Desktop
+mkdir BL2700_data
+cd BL2700_data
+wget https://raw.githubusercontent.com/stechtmann/BL2700/master/data/Loki_protein.fasta
+```
+
+## Log on to colossus using putty
 
 ## Navigate to the BL2700_data
 ```{BASH}
