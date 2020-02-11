@@ -1,5 +1,5 @@
 # In class work
-Protein folding chaperones assist proteins in proper folding.  Due to the essential role of protein folding chaperones, they are found universally across the tree of life.  One of the most important chaperones is the Chaperonin (CPN) also known as the heat shock protein 60.  In this exercise we are going to use BLAST to study the similarity between CPN from diverse domains of life as well as study the CPN content of a novel organism recently discovered from the deep ocean - The Lokiarchaeotes - which are a member of a recently described group known as the Asgard Archaea.
+Protein folding chaperones assist proteins in proper folding.  Due to the essential role of protein folding chaperones, they are found universally across the tree of life.  One of the most important chaperones is the Chaperonin (CPN) also known as the heat shock protein 60.  In this exercise we are going to use BLAST to study the similarity between CPN from diverse domains of life by studying the diversity of chaperones from an intracellular symbiont of a hyperthermophilic archaeon.  The symbiont (Nanoarchaota equitans) lives within the cells of Igniococcus spp.  It has adapted for growth as a symbiont and has streamlined it's genome.
 
 ### Part 1 - Install blast tools
 #### Obtain and install Miniconda
@@ -47,7 +47,6 @@ wget https://raw.githubusercontent.com/stechtmann/BL2700/master/data/all_HSP.fas
 blastp -db Nano_db -query all_HSP.fasta -out HSP_BLAST.txt -outfmt 7
 ```
 
-- Which of the query proteins is the best hit?  
-- Which of the Loki proteins is the closest homolog of the query sequences?  
-- Are the same Loki proteins the same best hits for the query sequences?
-- Does the Lokiarchaeote have any CPNs.
+- Which heat shock proteins have homologs in the Nanoarchaeota genome?
+- Are there any paralogs?
+- Explain your answer
