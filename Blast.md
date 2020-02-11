@@ -27,24 +27,24 @@ conda install -c bioconda blast
 - Log on to colossus
 - Navigate to your in class directory and make a new directory for todays work.
 - Change into the new directory
-- Download the fasta of annotated protein sequences for the the unknown Lokiarchaeote by using `wget`
+- Download the fasta of annotated protein sequences for the genome of Nanoarchaeota equitans using `efetch`
 ```BASH
-wget https://raw.githubusercontent.com/stechtmann/BL4300-5300/master/data/In_class/Loki_protein.faa
+efetch -id AE017199.1 -db sequences -format fasta_cds_aa > N.equitans.fasta
 ```
 
 - Make a blastable database of protein sequences from the unknown Lokiarchaeote protein sequences
 ```BASH
-makeblastdb -in Loki_protein.faa -dbtype prot -title Loki_protein
+makeblastdb -in N.equitans.fasta -dbtype prot -out Nano_db
 ```
 
 - Use wget to download the `CPN_BL.fasta` from the github page
 ```BASH
-wget https://raw.githubusercontent.com/stechtmann/BL4300-5300/master/data/In_class/CPN_BL.fasta
+wget https://raw.githubusercontent.com/stechtmann/BL2700/master/data/all_HSP.fasta
 ```
 
 - Perform a blastp against the Lokiarchaeote protein db with the `CPN_BL.fasta` as your query  
 ```BASH
-blastp -db Loki_protein.faa -query CPN_BL.fasta -out CPN_BLAST.txt -outfmt 7
+blastp -db Nano_db -query all_HSP.fasta -out HSP_BLAST.txt -outfmt 7
 ```
 
 - Which of the query proteins is the best hit?  
