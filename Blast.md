@@ -14,7 +14,7 @@ Record the following results for each search
 1. Out of the top 100 hits what is the lowest scoring hit?
 
 What conclusions can be drawn from these results?  
-Is the human TCP-1 homogous to the *E. coli* GroEL?
+Is the human T-complex protein 1 homogous to the *E. coli* GroEL?
 
 ## Command line BLAST activity (30 minutes)
 ### Part 1 - Install blast tools
