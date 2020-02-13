@@ -1,6 +1,21 @@
 # In class work
 Protein folding chaperones assist proteins in proper folding.  Due to the essential role of protein folding chaperones, they are found universally across the tree of life.  One of the most important chaperones is the Chaperonin (CPN) also known as the heat shock protein 60.  In this exercise we are going to use BLAST to study the similarity between CPN from diverse domains of life by studying the diversity of chaperones from an intracellular symbiont of a hyperthermophilic archaeon.  The symbiont (Nanoarchaota equitans) lives within the cells of Igniococcus spp.  It has adapted for growth as a symbiont and has streamlined it's genome.
 
+## Web BLAST activity (10 minutes)
+1. Perform a blastp with NP_418567.1 (Protein sequence for the *E. coli* chaperonin (GroEL)) as your query against the reference protein (RefSeq) database  
+1. Perform a blastp with NP_418567.1 as your query against the reference protein (RefSeq) database searching only Archaea   
+1. Perform a blastp with NP_418567.1 as your query against the reference protein (RefSeq) database searching only Eukarya
+1. Perform a blastp with NP_418567.1 as your query against the reference protein (RefSeq) database searching only *Homo sapiens*
+
+Record the following results for each search
+1. Note overall quality of the hits.  
+1. Are any of the top 100 hits non-significant?
+1. Out of the top 100 hits what is the highest scoring hit?
+1. Out of the top 100 hits what is the lowest scoring hit?
+
+What conclusions can be drawn from these results?
+
+## Command line BLAST activity (30 minutes)
 ### Part 1 - Install blast tools
 #### Obtain and install Miniconda
 ```{BASH}
