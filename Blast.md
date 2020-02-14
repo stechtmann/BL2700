@@ -38,6 +38,7 @@ source ~/.bashrc
 
 ```{BASH}
 conda install -c bioconda blast
+conda install -c bioconda entrez-direct
 ```
 
 ### Part 2 - Command line
