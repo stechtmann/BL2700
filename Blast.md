@@ -19,6 +19,8 @@ Is the human T-complex protein 1 homogous to the *E. coli* GroEL?
 ## Command line BLAST activity (30 minutes)
 ### Part 1 - Install blast tools
 #### Obtain and install Miniconda
+- Log on to colossus
+
 ```{BASH}
 cd ~
 wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
@@ -40,7 +42,6 @@ conda install -c bioconda blast
 
 ### Part 2 - Command line
 
-- Log on to colossus
 - Navigate to your in class directory and make a new directory for todays work.
 ```{BASH}
 cd Desktop/BL2700_data
