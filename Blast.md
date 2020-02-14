@@ -42,7 +42,14 @@ conda install -c bioconda blast
 
 - Log on to colossus
 - Navigate to your in class directory and make a new directory for todays work.
+```{BASH}
+cd Desktop/BL2700_data
+mkdir BLAST
+```
 - Change into the new directory
+```{BASH}
+cd BLAST
+```
 - Download the fasta of annotated protein sequences for the genome of Nanoarchaeota equitans using `efetch`
 ```BASH
 efetch -id AE017199.1 -db sequences -format fasta_cds_aa > N.equitans.fasta
