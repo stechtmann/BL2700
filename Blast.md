@@ -71,6 +71,10 @@ wget https://raw.githubusercontent.com/stechtmann/BL2700/master/data/all_HSP.fas
 ```BASH
 blastp -db Nano_db -query all_HSP.fasta -out HSP_BLAST.txt -outfmt 7
 ```
+- Look at your results
+```{BASH}
+less HSP_BLAST.txt
+```
 
 - Which heat shock proteins have homologs in the Nanoarchaeota genome?
 - Are there any paralogs?
