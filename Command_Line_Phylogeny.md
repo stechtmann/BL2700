@@ -28,4 +28,13 @@ quicktree -boot 1000 Clustal.st > test.nwk
 ### Visualize the tree
 Use WinSCP to transfer your file to your local computer and visualize on phylogeny.fr
 
+## Construct a Maximum likelihood tree
+### Learn the best model for the data that we're using
+```{BASH}
+modeltest-ng -i Clustal.fa -o Clustal_models -t ml -d aa -p 5 
+```
+
+### Construct a maximum likelihood tree with the appropriate model
+
+
 
