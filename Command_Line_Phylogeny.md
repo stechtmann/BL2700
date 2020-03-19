@@ -26,7 +26,13 @@ quicktree -boot 1000 Clustal.st > test.nwk
 ```
 
 ### Visualize the tree
-Use WinSCP to transfer your file to your local computer and visualize on phylogeny.fr
+Use WinSCP or FileZilla to transfer your file to your local computer and visualize on phylogeny.fr
+
+To use these programs you will need to enter the following information.
+  - Server: colossus.it.mtu.edu
+  - Username: Your MTU username
+  - Password: Your MTU password
+  - Port: 22
 
 ## Construct a Maximum likelihood tree
 
