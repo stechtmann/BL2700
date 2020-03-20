@@ -73,7 +73,7 @@ This is an example command for the maximum likelihood tree building method
   - params=n   : no parameter is optimised.
 
 
-### Construct a maximum likelihood tree with the appropriate model and aproximate likelihood support for branches
+### Construct a maximum likelihood tree with the appropriate model and fast aproximate likelihood support (SH-aLRT) for branches
 ```{BASH}
-phyml -i HSP20_phyi.txt -d aa -m LG -f e -v e -a e -c 4 -o tlr -b -1
+phyml -i HSP20_phyi.txt -d aa -m LG -f e -v e -a e -c 4 -o tlr -b -4
 ```
