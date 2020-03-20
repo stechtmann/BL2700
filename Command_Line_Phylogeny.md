@@ -4,6 +4,13 @@ conda create -n phylogeny -c bioconda -c conda-forge clustalo quicktree \
              muscle phyml modeltest-ng
 ```
 
+## Navigate to the appropriate directory and make a new directory for today's work.
+```{BASH}
+cd Desktop/BL2700
+mkdir trees
+cd trees
+```
+
 ## Get the data
 ```{BASH}
 wget https://raw.githubusercontent.com/stechtmann/BL2700/master/data/HSP20.fasta
