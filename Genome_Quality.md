@@ -27,17 +27,17 @@ We are going to be downloading test data from the Short Read Archive (SRA). We a
 cd data
 mkdir Genomics
 cd Genomics
-fastq-dump SRR4095642 -t ~/data
+fasterq-dump -t ~/data/ SRR4095642
 ```
 
 ## Assess the quality of the raw reads
 
 ```{BASH}
-fastqc SRR4095642_R1.fastq.gz
+fastqc SRR4095642_1.fastq
 ```
 
 ```{BASH}
-fastqc SRR4095642_R2.fastq.gz
+fastqc SRR4095642_2.fastq
 ```
 
 ## Check the fastqc output using filezilla or WinSCP
@@ -47,7 +47,7 @@ You will need to open WinSCP and either transfer the files to your desktop or cl
 To trim low quality reads we're going to use a sliding window trimmer known as trimmomatic.
 
 ```{BASH}
-trimmomatic PE G15_S3_L001_R1_001.fastq.gz G15_S3_L001_R2_001.fastq.gz G15_pair_R1.fastq.gz G15_unpair_R1.fastq.gz G15_pair_R2.fastq.gz G15_unpair_R2.fastq.gz ILLUMINACLIP:~/miniconda3/pkgs/trimmomatic-0.36-6/share/trimmomatic-0.36-6/adapters/NexteraPE-PE.fa:2:30:10:2 LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:36
+trimmomatic PE SRR4095642_1.fastq SRR4095642_2.fastq Ch_pair_R1.fastq Ch_unpair_R1.fastq Ch_pair_R2.fastq Ch_unpair_R2.fastq ILLUMINACLIP:~/miniconda3/pkgs/trimmomatic-0.36-6/share/trimmomatic-0.36-6/adapters/NexteraPE-PE.fa:2:30:10:2 LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:36
 ```
 `trimmomatic` - name of the command
 `PE` - paired end data (every molecule of DNA is sequenced from both ends)
@@ -66,3 +66,6 @@ output - there are four outputs
 
 ## Check the quality of trimmed reads with fastq
 
+```{BASH}
+fastqc Ch_pair_R1.fastq
+```
