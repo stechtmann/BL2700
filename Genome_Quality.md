@@ -57,11 +57,12 @@ output - there are four outputs
   1. forward unpaired - no high quality reverse reads  
   1. reverse paired   
   1. reverse unpaired - no high quality forward reads  
-`ILLUMINACLIP` - Removes sequences that were added as part of the library preparation that are not part of the genome being sequenced needs the path to fasta file that contains the sequence for the adaptors used.
-`LEADING` - removes the first bases for each read
-`TRAILING` - removes the last bases from the each read
-`SLIDINGWINDOW` - Quality trimming for each read 4:15 (window size of five basepairs and average quality cut off of 15)
-`MINLEN` - minimum length of the read
+
+`ILLUMINACLIP` - Removes sequences that were added as part of the library preparation that are not part of the genome being sequenced needs the path to fasta file that contains the sequence for the adaptors used.  
+`LEADING` - removes the first bases for each read  
+`TRAILING` - removes the last bases from the each read  
+`SLIDINGWINDOW` - Quality trimming for each read 4:15 (window size of five basepairs and average quality cut off of 15)  
+`MINLEN` - minimum length of the read  
 
 ## Check the quality of trimmed reads with fastq
 
