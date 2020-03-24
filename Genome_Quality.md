@@ -41,5 +41,27 @@ fastqc SRR4095642_R2.fastq.gz
 ```
 
 ## Check the fastqc output using filezilla or WinSCP
+You will need to open WinSCP and either transfer the files to your desktop or click on the .html file then view/edit
 
 ## Trim low quality reads
+To trim low quality reads we're going to use a sliding window trimmer known as trimmomatic.
+
+```{BASH}
+trimmomatic PE G15_S3_L001_R1_001.fastq.gz G15_S3_L001_R2_001.fastq.gz G15_pair_R1.fastq.gz G15_unpair_R1.fastq.gz G15_pair_R2.fastq.gz G15_unpair_R2.fastq.gz ILLUMINACLIP:~/miniconda3/pkgs/trimmomatic-0.36-6/share/trimmomatic-0.36-6/adapters/NexteraPE-PE.fa:2:30:10:2 LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:36
+```
+`trimmomatic` - name of the command
+`PE` - paired end data (every molecule of DNA is sequenced from both ends)
+input - Forward (R1) and Reverse (R2) reads
+output - there are four outputs
+  1. forward paired
+  1. forward unpaired - no high quality reverse reads  
+  1. reverse paired   
+  1. reverse unpaired - no high quality forward reads  
+`ILLUMINACLIP` - Removes sequences that were added as part of the library preparation that are not part of the genome being sequenced needs the path to fasta file that contains the sequence for the adaptors used.
+`LEADING` - removes the first bases for each read
+`TRAILING` - removes the last bases from the each read
+`SLIDINGWINDOW` - Quality trimming for each read 4:15 (window size of five basepairs and average quality cut off of 15)
+`MINLEN` - minimum length of the read
+
+## Check the quality of trimmed reads with fastq
+
