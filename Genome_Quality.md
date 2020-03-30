@@ -45,12 +45,6 @@ You will need to open WinSCP and either transfer the files to your desktop or cl
 
 ## Trim low quality reads
 
-Open a screen
-```{BASH}
-screen -S trimming
-conda activate assembly 
-```
-
 To trim low quality reads we're going to use a sliding window trimmer known as trimmomatic.
 
 ```{BASH}
@@ -70,10 +64,6 @@ output - there are four outputs
 `TRAILING` - removes the last bases from the each read  
 `SLIDINGWINDOW` - Quality trimming for each read 4:15 (window size of five basepairs and average quality cut off of 15)  
 `MINLEN` - minimum length of the read  
-
-Detatch from your screen
-
-type `ctrl-a` follwed by `d`
 
 ## Check the quality of trimmed reads with fastq
 
