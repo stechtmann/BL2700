@@ -25,6 +25,12 @@ Add a new line to your ~/.bashrc file
 ```{BASH}
 echo 'export PATH="~/software/:$PATH"' >> ~/.bashrc 
 ```
+Activate the changes
+
+```{BASH}
+source ~/.bashrc
+```
+
 ## Download your data
 
 to download data you need to know the google id for the file that you're interested in downloading.  You can find this by getting the sharable link for the file of interest.  
