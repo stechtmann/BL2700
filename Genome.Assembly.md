@@ -7,7 +7,7 @@ cd data/Genomics
 
 Because the files that we are using are so large, it would take about 30 minutes to run each of these assembly commands.  In order to demonstrate these commands in a way that doesn't take a very long time, we will only perform these on a subset of the reads.
 
-We will use the first million reads from each of the quality filtered R1 and R2 files.
+We will use the first million reads from each of the quality filtered R1 and R2 files.  **Note: You should not do this for the reads from the genomes that you've been given as this is throwing out useful data.  We are just doing this for the sake of time for class**
 
 ```{BASH}
 head -n 4000000 Ch_pair_R1.fastq > Ch_R1_trim.fastq
