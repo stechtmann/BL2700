@@ -48,7 +48,7 @@ efetch -id CP000141.1 -db sequences -format fasta > C.hydrogenoformansZ2901.fast
 
 ### Generate index of the reference using bowtie
 ```{BASH}
-bowtie2-build C.hydrogenoformans_Z2901.fasta C.hydro
+bowtie2-build C.hydrogenoformansZ2901.fasta C.hydro
 ```
 
 ### Map the DSM reads to the reference
