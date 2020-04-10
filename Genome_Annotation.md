@@ -18,7 +18,10 @@ prokka --outdir Ch_DSM --prefix Ch_DSM --locustag Ch_DSM contigs_names.fasta
 ```
 
 ### Extract all of the genes with an EC Number
+```{BASH}
 grep "eC_number=" Ch_DSM.gff | cut -f9 | cut -f1,2 -d ';'| sed 's/ID=//g'| sed 's/;eC_number=/\t/g' > PROKKA.Ch_DSM.ec
-
+```
 ### Extract all of the genes with COGs
+```{BASH}
 grep 'COG' Ch_DSM.tsv | cut -f 1,6 -d $'\t'
+```
