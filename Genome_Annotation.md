@@ -25,3 +25,11 @@ grep "eC_number=" Ch_DSM.gff | cut -f9 | cut -f1,2 -d ';'| sed 's/ID=//g'| sed '
 ```{BASH}
 grep 'COG' Ch_DSM.tsv | cut -f 1,6 -d $'\t'
 ```
+
+### Construct a genome scale metabolic model
+
+Use FileZilla to move the .faa file
+
+Naviagate to [KEGG MAPPER](https://www.kegg.jp/kegg/tool/annotate_sequence.html)
+
+Upload the file to KEGG Mapper and select Carboxydothermus hydrogenoformans as the Genus species.
