@@ -10,6 +10,8 @@ This experiment was performed to compare the gene expression profiles of Drosoph
 
 Pupae were grown under normal gravity and three times gravity.  Four replicates were performed for each condition.  RNA was extracted and subjected to RNAseq.  Between 26 and 30 million reads were obtained for each of the replicates.
 
+[Reference](https://www.sciencedirect.com/science/article/pii/S088875431630088X?via%3Dihub)
+
 ## Download the needed data
 
 ### Make new directory
