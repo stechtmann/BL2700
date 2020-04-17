@@ -6,6 +6,10 @@ conda create -n transcriptomics -c bioconda fastqc=0.11.5 trimmomatic=0.36 samto
 
 This experiment was performed to compare the gene expression profiles of Drosophila melanogaster pupae developed in hypergravity.  This has applications for NASA considering the plans for space travel.  In D. melanogaster there are some developmental cues that occur in response to gravity.  This experiment is trying to determine the particular gravity responsive genes.
 
+## Experimental Design
+
+Pupae were grown under normal gravity and three times gravity.  Four replicates were performed for each condition.  RNA was extracted and subjected to RNAseq.  Between 26 and 30 million reads were obtained for each of the replicates.
+
 ## Download the needed data
 
 ### Make new directory
