@@ -59,13 +59,13 @@ A for loop is a logical expression that will help you perform the same process o
 
 A simple for loop would be to just count how many sequences are in our files.  
 
-This can start with understanding how you do this with one file
+### This can start with understanding how you do this with one file
 
 ```{BASH}
 grep -c '@SRR' D.mel.rep1.fastq
 ```
 
-Now we can write a for loop to do this for all of our input data.
+### Now we can write a for loop to do this for all of our input data.
 
 ```{BASH}
 for file in D.mel.rep*
@@ -74,7 +74,7 @@ grep -c '@SRR' $file
 done
 ```
 
-Now we can write a for loop for the trimming function.
+### Now we can write a for loop for the trimming function.
 
 ```{BASH}
 for file in D.mel.rep*
@@ -82,13 +82,10 @@ do
 trimmomatic SE $file trim.$file ILLUMINACLIP:~/miniconda3/pkgs/trimmomatic-0.36-6/share/trimmomatic-0.36-6/adapters/TruSeq2-SE.fa:2:30:10:2 LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:36
 done
 ```
-Now we can write a for loop for the mapping and quantifying
+### Now we can write a for loop for the mapping and quantifying
 ```{BASH}
 for file in trim.D.mel*
 do
 salmon quant -i D.melanogaster -l A -r $file --validateMappings -o quants_$file
 done
 ```
-
-
-
