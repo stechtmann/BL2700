@@ -2,7 +2,9 @@
 ```{BASH}
 conda create -n transcriptomics -c bioconda fastqc=0.11.5 trimmomatic=0.36 samtools salmon
 ```
+## Hypothesis
 
+This experiment was performed to compare the gene expression profiles of Drosophila melanogaster pupae developed in hypergravity.  This has applications for NASA considering the plans for space travel.  In D. melanogaster there are some developmental cues that occur in response to gravity.  This experiment is trying to determine the particular gravity responsive genes.
 
 ## Download the needed data
 
