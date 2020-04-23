@@ -1,10 +1,30 @@
 ## Review
 Data from DESeq
 
-BaseMean - Average Expression
-Log2foldChange - log base 2 of the ratio of expression between two different treatment.
-pvalue - significance of difference between two conditions
-adj.pvalue - pvalue adjusted for multiple comparisons.
+BaseMean - Average Expression  
+Log2foldChange - log base 2 of the ratio of expression between two different treatment.  
+pvalue - significance of difference between two conditions.  
+adj.pvalue - pvalue adjusted for multiple comparisons.  
+
+## Handeling Data with dplyr
+
+```{R}
+library(tidyverse)
+library(DESeq2)
+```
+### Filter
+Determine the number of significantly different genes using the tidyverse `filter` command.  `filter` is used to separate out parts of a dataframe that match a criteria
+
+```{R}
+res_sig<-filter(res, padj<=0.05)
+```
+
+### Mutate
+Label genes that are significantly different using the tidyverse `mutate` command.  `mutate` is used to add a column to your dataframe and populate that column with data.  `ifelse` is used to specify a logical statement.
+
+```{R}
+res2<-mutate(res, ifelse(padj<=0.05, "significant", "non-significant")))
+```
 
 ## Basic plotting
 
@@ -28,6 +48,19 @@ plotCounts(dds, gene="INSERTrowID", intgroup="dex", returnData=TRUE) %>%
   scale_y_log10() + 
   ggtitle("INSERT GENE NAME") 
 ```
+## Volcano Plots
+
+```{R}
+ggplot(res)+
+  geom_point(aes(x=log2FoldChange, y=-log10(padj)))
+```
+
+### Pettier Volcano Plot and handeling data with dplyr
+
+```{R}
+res2<-mutate
+
+
 ### More fun with plotting PCA
 
 Before plotting a PCA you must transform your count data:  Log transformation is often a common transformation to prepare data for PCA.
