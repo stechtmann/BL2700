@@ -26,6 +26,13 @@ Label genes that are significantly different using the tidyverse `mutate` comman
 res2<-mutate(res, ifelse(padj<=0.05, "significant", "non-significant")))
 ```
 
+### Pipes and Summarize
+```{R}
+res %>%
+  filter(log2FoldChange>=2)%>%
+  summarise(mean(log2FoldChange))
+```
+
 ## Basic plotting
 
 DESeq has a basic plotting function `plotCounts` which allows you to plot the expression of a particular gene
@@ -58,8 +65,9 @@ ggplot(res)+
 ### Pettier Volcano Plot and handeling data with dplyr
 
 ```{R}
-res2<-mutate
-
+ggplot(res2)+
+  geom_point(aes(x=log2FoldChange, y=-log10(padj),color=significance))
+```
 
 ### More fun with plotting PCA
 
