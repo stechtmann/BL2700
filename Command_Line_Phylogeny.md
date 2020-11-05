@@ -1,7 +1,7 @@
 ## Install important packages for all command line phylogeny activities.
 ```{BASH}
 conda create -n phylogeny -c bioconda -c conda-forge clustalo quicktree \
-             muscle phyml modeltest-ng
+             muscle phyml modeltest-ng fasttree
 ```
 
 ## Navigate to the appropriate directory and make a new directory for today's work.
@@ -45,7 +45,7 @@ To use these programs you will need to enter the following information.
 
 ### Use Muscle to create a multiple sequence alignment
 ```{BASH}
-muscle -in HSP20.fasta -out HSP20_Muscle.fa -phyiout HSP20_phyi.out -physout HSP20_phys.out
+muscle -in HSP20.fasta -out HSP20_Muscle.fa -phyiout HSP20_phyi.out -physout HSP20_phys.out -out HSP20.aln
 ```
 ### Learn the best model for the data that we're using
 ```{BASH}
@@ -77,3 +77,6 @@ This is an example command for the maximum likelihood tree building method
 ```{BASH}
 phyml -i HSP20_phyi.txt -d aa -m LG -f e -v e -a e -c 4 -o tlr -b -4
 ```
+### Construct the maximum likelihood tree with SH support using fasttree
+```{BASH}
+fasttree -gtr -gamma HSP20.aln > HSP20_fasttree.tre
