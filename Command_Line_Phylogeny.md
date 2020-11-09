@@ -45,7 +45,7 @@ To use these programs you will need to enter the following information.
 
 ### Use Muscle to create a multiple sequence alignment
 ```{BASH}
-muscle -in HSP20.fasta -out HSP20_Muscle.fa -phyiout HSP20_phyi.out -physout HSP20_phys.out -out HSP20.aln
+muscle -in HSP20.fasta -out HSP20_Muscle.fa -phyiout HSP20_phyi.out -physout HSP20_phys.out
 ```
 ### Learn the best model for the data that we're using
 ```{BASH}
@@ -78,5 +78,10 @@ This is an example command for the maximum likelihood tree building method
 phyml -i HSP20_phyi.txt -d aa -m LG -f e -v e -a e -c 4 -o tlr -b -4
 ```
 ### Construct the maximum likelihood tree with SH support using fasttree
+
+### Use Muscle to create a multiple sequence alignment
 ```{BASH}
-fasttree -gtr -gamma HSP20.aln > HSP20_fasttree.tre
+muscle -in HSP20.fasta -out HSP20_Muscle.aln 
+```
+```{BASH}
+fasttree -wag -gamma HSP20.aln > HSP20_fasttree.tre
