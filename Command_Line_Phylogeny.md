@@ -1,7 +1,7 @@
 ## Install important packages for all command line phylogeny activities.
 ```{BASH}
 conda create -n phylogeny -c bioconda -c conda-forge clustalo quicktree \
-             muscle phyml modeltest-ng fasttree
+             muscle phyml modeltest-ng fasttree raxml
 ```
 
 ## Navigate to the appropriate directory and make a new directory for today's work.
