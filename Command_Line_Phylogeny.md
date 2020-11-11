@@ -49,7 +49,7 @@ muscle -in HSP20.fasta -out HSP20_Muscle.fa -phyiout HSP20_phyi.out -physout HSP
 ```
 ### Learn the best model for the data that we're using
 ```{BASH}
-modeltest-ng -i HSP20_phys.out -o HSP20_models -t ml -d aa 
+modeltest-ng -i HSP20_phys.out -o HSP20_models -t ml -d aa -p 5
 ```
 ### Construct a maximum likelihood tree with the appropriate model
 ```{BASH}
