@@ -84,4 +84,4 @@ phyml -i HSP20_phyi.txt -d aa -m LG -f e -v e -a e -c 4 -o tlr -b -4
 muscle -in HSP20.fasta -out HSP20_Muscle.aln 
 ```
 ```{BASH}
-fasttree -wag -gamma HSP20.aln > HSP20_fasttree.tre
+fasttree -wag -gamma HSP20_Muscle.aln > HSP20_fasttree.tre
