@@ -40,6 +40,8 @@ mkdir BL2700
 cd BL2700
 ```
 
+# Unix Filters Activity
+
 ## Download file 
 1. Log onto colossus
 ```{BASH}
