@@ -2,12 +2,45 @@
 
 # Command line activity
 
-## Download file 
-1. Download the [Loki_protein.fasta](https://raw.githubusercontent.com/stechtmann/BL2700/master/data/Loki_protein.fasta)  (Right click and save link as)
-1. Make a folder on your Desktop called BL2700_data
-1. Place the Loki_protein.fasta in the BL2700_data folder.
+## Log on to colossus using terminal or putty
 
-** If using your own computer **
+Hostname: `colossus.it.mtu.edu`  
+Username: Your MTU ID
+Password: Your MTU passowrd
+*Note: Your password will not show up when typing*
+
+## Log on to Filezilla
+Hostname: `colossus.it.mtu.edu`  
+Username: Your MTU ID
+Password: Your MTU passowrd
+Port: 22
+Then click Quickconnect
+
+## Pracice Unix activity
+
+### Determine your username
+
+```{BASH}
+whoami
+```
+### Determine your current working directory (Path)
+```{BASH}
+pwd
+```
+### Determine what files and directories are your working directory
+```{BASH}
+ls
+```
+### Make a new directory
+```{BASH}
+mkdir BL2700
+```
+### Change directoriees
+```{BASH}
+cd BL2700
+```
+
+## Download file 
 1. Log onto colossus
 ```{BASH}
 cd Desktop
@@ -15,8 +48,6 @@ mkdir BL2700_data
 cd BL2700_data
 wget https://raw.githubusercontent.com/stechtmann/BL2700/master/data/Loki_protein.fasta
 ```
-
-## Log on to colossus using putty
 
 ## Navigate to the BL2700_data
 ```{BASH}
