@@ -45,16 +45,15 @@ cd BL2700
 ## Download file 
 1. Log onto colossus
 ```{BASH}
-cd Desktop
-mkdir BL2700_data
-cd BL2700_data
+mkdir BL2700
+cd BL2700
 wget https://raw.githubusercontent.com/stechtmann/BL2700/master/data/Loki_protein.fasta
 ```
 
 ## Navigate to the BL2700_data
 ```{BASH}
-cd Desktop
-cd BL2700_data
+cd ~
+cd BL2700
 ```
 ## Look at the first few lines of this file.
 ```{BASH}
