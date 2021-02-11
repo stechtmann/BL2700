@@ -34,11 +34,11 @@ bash Miniconda3-latest-Linux-x86_64.sh
 source ~/.bashrc
 ```
 
-#### Install blast
+#### Install Programs for the next few weeks
 
 ```{BASH}
-conda install -c bioconda blast
-conda install -c bioconda entrez-direct
+conda create -n homology -c bioconda -c conda-forge clustalo quicktree \
+             muscle phyml modeltest-ng fasttree raxml blast entrez-direct
 ```
 
 ### Part 2 - Command line
