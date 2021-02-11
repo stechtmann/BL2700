@@ -41,6 +41,11 @@ conda create -n homology -c bioconda -c conda-forge clustalo quicktree \
              muscle phyml modeltest-ng fasttree raxml blast entrez-direct
 ```
 
+#### Activate environment
+```{BASH}
+conda activate homology
+```
+
 ### Part 2 - Command line
 
 - Navigate to your in class directory and make a new directory for todays work.
