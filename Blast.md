@@ -1,4 +1,4 @@
-# In class work
+# Friday 2/12 - In class work
 Protein folding chaperones assist proteins in proper folding.  Due to the essential role of protein folding chaperones, they are found universally across the tree of life.  One of the most important chaperones is the Chaperonin (CPN) also known as the heat shock protein 60.  In this exercise we are going to use BLAST to study the similarity between CPN from diverse domains of life by studying the diversity of chaperones from an intracellular symbiont of a hyperthermophilic archaeon.  The symbiont (Nanoarchaota equitans) lives within the cells of Igniococcus spp.  It has adapted for growth as a symbiont and has streamlined it's genome.
 
 ## Web BLAST activity
@@ -41,22 +41,19 @@ conda create -n homology -c bioconda -c conda-forge clustalo quicktree \
              muscle phyml modeltest-ng fasttree raxml blast entrez-direct
 ```
 
+### Monday 2/15 In class work 
+
+#### Log on to colossus
+- Use Putty or Terminal
+
 #### Activate environment
 ```{BASH}
 conda activate homology
 ```
-
-## Part 2 - Command line
-
 ### Set up
 - Navigate to your in class directory and make a new directory for todays work.
 ```{BASH}
-cd Desktop/BL2700_data
-mkdir BLAST
-```
-- Change into the new directory
-```{BASH}
-cd BLAST
+cd ~/Desktop/BL2700_data/BLAST
 ```
 
 ### E-utilities Overview and Download data
