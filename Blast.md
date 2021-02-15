@@ -45,6 +45,9 @@ conda create -n homology -c bioconda -c conda-forge clustalo quicktree \
 
 #### Log on to colossus
 - Use Putty or Terminal
+- SERVER: colossus.it.mtu.edu
+- Username: mtuID
+- Password: SSO
 
 #### Activate environment
 ```{BASH}
