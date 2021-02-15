@@ -41,7 +41,7 @@ conda create -n homology -c bioconda -c conda-forge clustalo quicktree \
              muscle phyml modeltest-ng fasttree raxml blast entrez-direct
 ```
 
-### Monday 2/15 In class work 
+# Monday 2/15 In class work 
 
 #### Log on to colossus
 - Use Putty or Terminal
