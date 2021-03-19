@@ -85,3 +85,9 @@ muscle -in HSP20.fasta -out HSP20_Muscle.aln
 ```
 ```{BASH}
 fasttree -wag -gamma HSP20_Muscle.aln > HSP20_fasttree.tre
+```
+This command is set up with the wag model.  If model test gave a different model you can change it to either
+- JTT
+- WAG
+- LG
+This command also assumes the gamma distribution remove the `-gamma` if gamma is not appropriate.
