@@ -56,8 +56,24 @@ You will need to open WinSCP and either transfer the files to your desktop or cl
 
 To trim low quality reads we're going to use a sliding window trimmer known as trimmomatic.
 
+To set up this command you have to modify the `ILLUMINACLIP` path to do this run
 ```{BASH}
-trimmomatic PE C.hydro_DSMZ_R1.fastq.gz C.hydro_DSMZ_R2.fastq.gz Ch_pair_R1.fastq Ch_unpair_R1.fastq Ch_pair_R2.fastq Ch_unpair_R2.fastq ILLUMINACLIP:~/miniconda3/pkgs/trimmomatic-0.36-6/share/trimmomatic-0.36-6/adapters/NexteraPE-PE.fa:2:30:10:2 LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:36
+pwd
+```
+On my login the following is returned
+```{BASH}
+/home/campus14/smtechtm/data/Genomics/Quality
+```
+The first part is the path to you home directory
+```{BASH}
+/home/campus14/smtechtm/
+```
+yours should look something like this but the campus number and your username should be different.
+
+In the commmand below replace the 'PATHTOHOME' with the path to your home directory.
+
+```{BASH}
+trimmomatic PE C.hydro_DSMZ_R1.fastq.gz C.hydro_DSMZ_R2.fastq.gz Ch_pair_R1.fastq Ch_unpair_R1.fastq Ch_pair_R2.fastq Ch_unpair_R2.fastq ILLUMINACLIP:PATHTOHOME/miniconda3/pkgs/trimmomatic-0.36-6/share/trimmomatic-0.36-6/adapters/NexteraPE-PE.fa:2:30:10:2 LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:36
 ```
 `trimmomatic` - name of the command
 `PE` - paired end data (every molecule of DNA is sequenced from both ends)
