@@ -5,6 +5,11 @@ conda create -n assembly -c bioconda -c conda-forge sra-tools fastqc=0.11.5 \
              trimmomatic=0.36 spades=3.11.1 quast=5.0.2 \
              bowtie2=2.2.5 prokka java-jdk=8.0.112 --yes
 ```
+#### Download the file to retrieve your sequencing files from google drive
+
+```{BASH}
+pip install gdown
+```
 
 #### Activate
 ```{BASH}
