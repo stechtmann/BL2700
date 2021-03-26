@@ -7,13 +7,14 @@ conda create -n assembly -c bioconda -c conda-forge sra-tools fastqc=0.11.5 \
 ```
 #### Download the file to retrieve your sequencing files from google drive
 
-```{BASH}
-pip install gdown
-```
-
 #### Activate
 ```{BASH}
 conda activate assembly
+```
+
+#### Download gdown
+```{BASH}
+pip install gdown
 ```
 
 ## Set up files
@@ -32,17 +33,20 @@ We are going to be downloading test data from the Short Read Archive (SRA). We a
 cd data
 mkdir Genomics
 cd Genomics
-fasterq-dump -t ~/data/ SRR4095642
+mkdir Quality
+cd Quality
+gdown https://drive.google.com/uc?id=17GXqsTYY7JGi92Ijuz5qGELdMJaGMYgK
+gdown https://drive.google.com/uc?id=1YnsR_zdZ9aqkIaODCk242hXdiz82RWyK
 ```
 
 ## Assess the quality of the raw reads
 
 ```{BASH}
-fastqc SRR4095642_1.fastq
+fastqc C.hydro_DSMZ_R1.fastq.gz
 ```
 
 ```{BASH}
-fastqc SRR4095642_2.fastq
+fastqc C.hydro_DSMZ_R2.fastq.gz
 ```
 
 ## Check the fastqc output using filezilla or WinSCP
@@ -53,7 +57,7 @@ You will need to open WinSCP and either transfer the files to your desktop or cl
 To trim low quality reads we're going to use a sliding window trimmer known as trimmomatic.
 
 ```{BASH}
-trimmomatic PE SRR4095642_1.fastq SRR4095642_2.fastq Ch_pair_R1.fastq Ch_unpair_R1.fastq Ch_pair_R2.fastq Ch_unpair_R2.fastq ILLUMINACLIP:~/miniconda3/pkgs/trimmomatic-0.36-6/share/trimmomatic-0.36-6/adapters/NexteraPE-PE.fa:2:30:10:2 LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:36
+trimmomatic PE C.hydro_DSMZ_R1.fastq.gz C.hydro_DSMZ_R2.fastq.gz Ch_pair_R1.fastq Ch_unpair_R1.fastq Ch_pair_R2.fastq Ch_unpair_R2.fastq ILLUMINACLIP:~/miniconda3/pkgs/trimmomatic-0.36-6/share/trimmomatic-0.36-6/adapters/NexteraPE-PE.fa:2:30:10:2 LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:36
 ```
 `trimmomatic` - name of the command
 `PE` - paired end data (every molecule of DNA is sequenced from both ends)
