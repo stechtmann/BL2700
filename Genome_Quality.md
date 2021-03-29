@@ -57,6 +57,7 @@ You will need to open WinSCP and either transfer the files to your desktop or cl
 
 ## Log in and activate your environment
 Log into colossus.
+Open Filezilla
 
 Activate your environment
 ```{BASH}
