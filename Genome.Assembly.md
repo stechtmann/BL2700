@@ -1,22 +1,24 @@
 ## Data
 Use the quality filtered data from the quality filtering lab day.
-
+### Navigate to your Genomics directory
 ```{BASH}
 cd data/Genomics
 ```
+### Make a new directory for your Assembly work
+```{BASH}
+mkdir Assembly
+```
+### Copy your quality filtered reads from your quality directory into the Assembly directory
+The 'cp' command allows you to copy a file from one location to another.
+Here we want to copy `Ch_pair_R1.fastq`, `Ch_pair_R2.fastq`,`Ch_unpair_R1.fastq`, and `Ch_unpair_R2.fastq`.  We could copy each on individiually.
 
-Because the files that we are using are so large, it would take about 30 minutes to run each of these assembly commands.  In order to demonstrate these commands in a way that doesn't take a very long time, we will only perform these on a subset of the reads.
+Here we can use the wildcard `*` to make this process easier.  The wildcard `*` means everything that starts with or ends with something.  Here we will use `Ch_*` to indicate we want to do something with everything that starts with `Ch_` this will copy all of these files over to our new directory.
 
-We will use the first million reads from each of the quality filtered R1 and R2 files.  **Note: You should not do this for the reads from the genomes that you've been given as this is throwing out useful data.  We are just doing this for the sake of time for class**
+The structure of the `cp` command is `cp file.to.be.copied location.to.place.the.file`
 
 ```{BASH}
-head -n 4000000 Ch_pair_R1.fastq > Ch_R1_trim.fastq
+cp Quality/Ch_* Assembly
 ```
-Do the same with the R2 file
-```{BASH}
-head -n 4000000 Ch_pair_R2.fastq > Ch_R2_trim.fastq
-```
-
 ## Screen Command
 Since these commands take time to run, we will use a command called `screen` which will let us open mulltiple terminal windows on colossus.  This way we can run one command, detach from that screen, open another screen, and then run another command.
 
