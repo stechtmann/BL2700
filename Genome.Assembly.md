@@ -18,6 +18,7 @@ The structure of the `cp` command is `cp file.to.be.copied location.to.place.the
 
 ```{BASH}
 cp Quality/Ch_* Assembly
+cd Assembly
 ```
 ## Screen Command
 Since these commands take time to run, we will use a command called `screen` which will let us open mulltiple terminal windows on colossus.  This way we can run one command, detach from that screen, open another screen, and then run another command.
