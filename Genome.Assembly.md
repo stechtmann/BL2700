@@ -56,7 +56,7 @@ bowtie2-build C.hydrogenoformansZ2901.fasta C.hydro
 
 ### Map the DSM reads to the reference
 ```{BASH}
-bowtie2 -x C.hydro -1 Ch_R1_trim.fastq -2 Ch_R2_trim.fastq -S DSM.sam -X 1000
+bowtie2 -x C.hydro -1 Ch_pair_R1.fastq -2 Ch_pair_R2.fastq -S DSM.sam -X 1000
 ```
 
 ### Detach from the screen
@@ -67,11 +67,12 @@ hold down `ctrl` and `a` followed by `d`
 ### Open a new screen
 ```{BASH}
 screen -S de_novo
+conda activate assembly
 ```
 
 #### Perform SPAdes denovo assembly on Quality trimmed data
 ```{BASH}
-spades.py -k 21,51,71,91,111,127 --careful --pe1-1 Ch_R1_trim.fastq --pe1-2 Ch_R2_trim.fastq --pe1-s Ch_unpair_R1.fastq -o Ch_DSM_spades_output
+spades.py -k 21,51,71,91,111,127 --careful --pe1-1 Ch_pair_R1.fastq --pe1-2 Ch_pair_R2.fastq --pe1-s Ch_unpair_R1.fastq -o Ch_DSM_spades_output
 ```
 
 #### Check Quality of the Assembly Using QUAST
