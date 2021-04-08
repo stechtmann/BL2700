@@ -47,4 +47,3 @@ Navigate to [CARD (Comprehensive Antibiotic Resistance Database)](https://card.m
      - Select criteria - Perfect and strict hits only.
      - Nudge ≥95% identity Loose hits to Strict: Exclude nudge
      - Sequence Quality: Low Quality 
-     - 
