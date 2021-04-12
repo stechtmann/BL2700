@@ -34,6 +34,14 @@ Naviagate to [KEGG MAPPER](https://www.kegg.jp/kegg/tool/annotate_sequence.html)
 
 Upload the file to KEGG Mapper and select Carboxydothermus hydrogenoformans as the Genus species.
 
+If your genome is larger (>2500 genes), then you use use BLAST Koala.  It is the same program, but can accomodate genomes with more genes.
+
+- Navigate to [BLAST KOALA](https://www.kegg.jp/blastkoala/)
+- Upload you sequence.
+- Enter the taxonomic group of Bacteria.
+- Enter KEGG gene database of genus prokaryotes.
+- Enter your email address.
+
 ### Identify antibiotic resistance genes in your genom
 
 Use the .faa file from the previous step to identify antibiotic resistance genes.
