@@ -48,10 +48,10 @@ Use the .faa file from the previous step to identify antibiotic resistance genes
 Navigate to [CARD (Comprehensive Antibiotic Resistance Database)](https://card.mcmaster.ca/)
 - Click on Analyze
 - Click on RGI (Resistance Gene Identifier)
-- Click on Choose File under upload fasta file.
+- Click on Choose File under upload fasta file (Choose the .faa file).
 - Upload the .faa file.
 - Make sure the following parameters are set
-     - Select data - DNA sequences
+     - Select data - Protein sequences
      - Select criteria - Perfect and strict hits only.
      - Nudge ≥95% identity Loose hits to Strict: Exclude nudge
      - Sequence Quality: Low Quality 
