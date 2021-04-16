@@ -3,6 +3,19 @@
 [R Graphics Cookbook](http://www.cookbook-r.com/Graphs/)
 
 # In class Exercise
+### Download data
+https://bioconnector.github.io/workshops/data/airway_scaledcounts.csv  
+https://bioconnector.github.io/workshops/data/airway_metadata.csv  
+https://bioconnector.github.io/workshops/data/annotables_grch38.csv  
+
+### Installing packages
+```{R}
+install.packages(“readr”)
+install.packages(“tidyverse”)
+if (!requireNamespace("BiocManager", quietly = TRUE)) install.packages("BiocManager") 
+BiocManager::install("DESeq2")
+```
+
 ### Access your libraries
 ```{R}
 library(readr)
