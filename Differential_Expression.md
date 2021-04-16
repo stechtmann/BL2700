@@ -8,6 +8,45 @@ https://bioconnector.github.io/workshops/data/airway_scaledcounts.csv
 https://bioconnector.github.io/workshops/data/airway_metadata.csv  
 https://bioconnector.github.io/workshops/data/annotables_grch38.csv  
 
+## R Overview
+
+### Set up a project
+- set up a new R project.
+- Open a new R script
+
+### Basic calculations
+- Add 3 + 5
+- Multiply 200 times 4000
+
+### Variables
+- create a variable `y` which is 1000
+- create a variable `x` which is 5000
+- Multiply your two variables together
+
+### Vectors
+##### Create a numerical vector
+```{R}
+glengths <- c(4.6, 3000, 50000) 
+glengths
+```
+
+##### Create a character vector
+```{R}
+species <- c("ecoli", "human", "corn") 
+species
+```
+### Dataframes
+##### Create a dataframe
+```{R}
+df <- data.frame(species, glengths)
+```
+### Lists
+### Create a list of the species vector, the dataframe, and the variable y
+```{R}
+list<- list(species, df, y)
+list
+```
+
 ### Installing packages
 ```{R}
 install.packages(“readr”)
@@ -15,6 +54,7 @@ install.packages(“tidyverse”)
 if (!requireNamespace("BiocManager", quietly = TRUE)) install.packages("BiocManager") 
 BiocManager::install("DESeq2")
 ```
+## Differential Abundance Activity
 
 ### Access your libraries
 ```{R}
