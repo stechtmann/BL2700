@@ -2,24 +2,19 @@
 [R for Data Science](https://r4ds.had.co.nz/)
 [R Graphics Cookbook](http://www.cookbook-r.com/Graphs/)
 
-## Installing packages
-```{R}
-install.packages(“readr”)
-install.packages(“tidyverse”)
-if (!requireNamespace("BiocManager", quietly = TRUE)) install.packages("BiocManager") 
-BiocManager::install("DESeq2")
-```
-## Access your libraries
+# In class Exercise
+### Access your libraries
 ```{R}
 library(readr)
 library(tidyverse)
 library(DESeq2)
 ```
 
-## importing data into R.
+### importing data into R.
 ```{R}
-mycounts <- read_csv("DEG/airway_scaledcounts.csv") 
+mycounts <- read_csv("data/airway_scaledcounts.csv") 
 metadata <- read_csv("data/airway_metadata.csv")
+anno <- read_csv("data/annotables_grch38.csv")
 ```
 ### Examine data
 ```{R}
@@ -59,7 +54,7 @@ dds <- DESeq(dds.data)
 
 ### Gather the results
 ```{R}
-res <- results(dds, tidy=TRUE)
+res <- results(dds, contrast=c("dex","control","treated"), tidy=TRUE)
 res <- tbl_df(res)
 res
 ```
@@ -68,6 +63,17 @@ res
 res2 <- arrange(res, padj)
 ```
 How many significantly different genes?
+
+```{R}
+res3 <- filter(res2, padj<=0.05 & log2FoldChange>=2)
+res4 <- filter(res2, padj<=0.05 & log2FoldChange<=-2)
+```
+
+### Join the annotations with results file
+```{R}
+res.anno <- res2 %>%
+  inner_join(anno, by=c("row"="ensgene"))
+```
 
 # Plotting
 
@@ -84,3 +90,43 @@ plotCounts(dds, gene="INSERTrowID", intgroup="dex", returnData=TRUE)
 ```
 
 This is not the prettiest plot.  Using ggplot2 you have much greater control over what is plotted and make many different types of plots
+
+Example plot
+```{R}
+plotCounts(dds, gene="INSERTrowID", intgroup="dex", returnData=TRUE) %>%
+  ggplot(aes(dex,count))+
+  geom_boxplot(aes(fill=dex))+
+  scale_y_log10() + 
+  ggtitle("INSERT GENE NAME") 
+```
+### More fun with plotting PCA
+
+Before plotting a PCA you must transform your count data:  Log transformation is often a common transformation to prepare data for PCA.
+
+```{R}
+rld=rlog(dds)
+```
+This is a basic PCA command
+```{R}
+plotPCA(rld, intgroup = "dex")
+```
+To have more control of of the plot you can extract the needed information  
+
+This command extracts the PCA coordinates
+```{R}
+pcaData <- plotPCA(rld, intgroup=c("dex"), returnData=TRUE)
+```
+This command extracts the percent variance explained by each axis
+```{R}
+percentVar <- round(100 * attr(pcaData, "percentVar"))
+```
+
+This takes that data and uses ggplot to make a prettier plot
+```{R}
+ggplot(pcaData, aes(PC1, PC2, color=dex, shape=dex)) +
+  geom_point(size=3) +
+  xlab(paste0("PC1: ",percentVar[1],"% variance")) +
+  ylab(paste0("PC2: ",percentVar[2],"% variance")) + 
+  coord_fixed()+
+  theme_bw()
+```
