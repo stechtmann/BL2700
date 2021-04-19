@@ -18,12 +18,26 @@ https://bioconnector.github.io/workshops/data/annotables_grch38.csv
 
 ### Basic calculations
 - Add 3 + 5
+```{R}
+3+5
+```
 - Multiply 200 times 4000
-
+```{R}
+200*4000
+```
 ### Variables
 - create a variable `y` which is 1000
+```{R}
+y<-1000
+```
 - create a variable `x` which is 5000
+```{R}
+x<-5000
+```
 - Multiply your two variables together
+```{R}
+x*y
+```
 
 ### Vectors
 ##### Create a numerical vector
