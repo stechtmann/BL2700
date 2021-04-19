@@ -1,8 +1,8 @@
 # Useful resources
-[R for Data Science](https://r4ds.had.co.nz/)
-[R Graphics Cookbook](http://www.cookbook-r.com/Graphs/)
-[Best Practices for RNASeq](https://genomebiology.biomedcentral.com/articles/10.1186/s13059-016-0881-8)
-[Differential Gene Expression - F1000](https://f1000research.com/articles/4-1521/v2)
+[R for Data Science](https://r4ds.had.co.nz/)  
+[R Graphics Cookbook](http://www.cookbook-r.com/Graphs/)  
+[Best Practices for RNASeq](https://genomebiology.biomedcentral.com/articles/10.1186/s13059-016-0881-8)  
+[Differential Gene Expression - F1000](https://f1000research.com/articles/4-1521/v2)  
 
 # In class Exercise
 ### Download data
