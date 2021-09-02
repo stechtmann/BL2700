@@ -48,11 +48,11 @@ rooms<-read.csv("rooms.csv")
 ### Data Types In R
 Variables can be contained in a number of different data structures
 1. Vectors
-1. Factors
-1. Matrix
-1. Dataframe
-1. Tibble
-1. List
+3. Factors
+4. Matrix
+5. Dataframe
+6. Tibble
+7. List
 
 ### Packages in R
 
