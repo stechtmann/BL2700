@@ -95,7 +95,7 @@ std.error<- function(x) sd(x)/sqrt(length(x))
 You can then recall the `std.error` function.
 
 ```{R}
-stderror(rooms$Writing_Instruments)
+std.error(rooms$Writing_Instruments)
 ```
 
 ### Packages in R
