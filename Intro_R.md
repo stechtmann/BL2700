@@ -51,9 +51,56 @@ The 'read.csv()` command allows you to read an entire comma separated file from 
 rooms<-read.csv("rooms.csv")
 ```
 
+### Exploring data in R
+
+#### Calculating basic stats about data.
+
+When running calculations in base R, the `$` specifies the column that you want to use in a dataset.
+
+For example `rooms$Writing_Instruments` performs a calculation with the column `Writing_Instruments` in the `rooms` dataframe.
+
+Mean - Averages
+```{R}
+mean(rooms$Writing_Instruments)
+```
+Median - the central number of a data set. Arrange data points from smallest to largest and locate the central number. 
+```{R}
+mean(rooms$Writing_Instruments)
+```
+Mode - The mode is the number in a data set that occurs most frequently.
+```{R}
+mode(rooms$Writing_Instruments)
+```
+Standard Deviation - A measure of the amount of variation or dispersion of a set of values.
+```{R}
+sd(rooms$Writing_Instruments)
+```
+#### Subsetting datasets
+some times you want to only use particular rows of a dataframe.  To do this you can subset a dataframe into other dataframes that only includ the rows that you're interested in working with.
+
+```{R}
+classrooms<-subset(rooms, Room_Type=="classroom")
+```
+This command can be read as follows.
+Create a new object `classrooms` by `subset`ing the dataframe `rooms` by only selecting rows where the value in the column `Room_Type` is an absolute match (`==`) to the word `classroom`.  
+
+#### Functions
+Sometimes you want to perform a calculation that is not present in R.  You can write these functions yourself.
+
+Standard error is a common metric used in statistics, but is not present in base R.  Standard error is standard deviation divided the square root of the number of observations. (se = sd/sqrt(n))
+
+```{R}
+std.error<- function(x) sd(x)/sqrt(length(x))
+```
+You can then recall the `std.error` function.
+
+```{R}
+stderror(rooms$Writing_Instruments)
+```
+
 ### Packages in R
 
-Packages are sets of programs written by other people that can be recalled and used to analyze data.
+Packages are sets of functions written by other people that can be recalled and used to analyze data.
 
 #### Install Packages
 ```{R}
