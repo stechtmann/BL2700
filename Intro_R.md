@@ -59,7 +59,7 @@ When running calculations in base R, the `$` specifies the column that you want 
 
 For example `rooms$Writing_Instruments` performs a calculation with the column `Writing_Instruments` in the `rooms` dataframe.
 
-Mean - Averages
+Mean - Average
 ```{R}
 mean(rooms$Writing_Instruments)
 ```
