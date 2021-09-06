@@ -10,9 +10,9 @@ pi*2
 
 You can also save numbers as data objects.
 ```{R}
-> answer1 = 23 + 21 + 17 + (19/2)  
-> answer2 = sqrt(23)
-> answer3 = answer1 + (answer1 * answer2)
+answer1 = 23 + 21 + 17 + (19/2)  
+answer2 = sqrt(23)
+answer3 = answer1 + (answer1 * answer2)
 ```
 ### Data Types In R
 Variables can be contained in a number of different data structures
