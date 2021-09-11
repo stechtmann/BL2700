@@ -88,6 +88,21 @@ Summary<-Buzzard_clean2 %>%
 group_by(spcode)%>%
 summarize(mean_abund=mean(Abund.n, na.rm = TRUE))
 ```
+
+You can also summarize multiple columns as the same time
+
+```{R}
+Summary<-Buzzard_clean2 %>%
+group_by(spcode)%>%
+summarize(mean_abund=mean(Abund.n, na.rm = TRUE),
+sd_abund=sd(Abund.n, na.rm = TRUE),
+mean_biomass=mean(biomass, na.rm = TRUE),
+sd_biomass=sd(biomass, na.rm = TRUE),
+mean_area=mean(basal.area, na.rm = TRUE),
+sd_area=sd(basal.area, na.rm = TRUE))
+```
+
+
 ### `arrange`
 To make displaying your data simpler, the `arrange` command can be used to order your data.
 
