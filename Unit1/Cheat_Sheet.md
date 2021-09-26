@@ -22,6 +22,7 @@ classrooms<-subset(rooms, Room_Type=="classroom")
 ```{R}
 library(tidyverse)
 ```
+## Tidyverse
 ### Importing data with `tidyverse`
 ```{R}
 Buzzard<-read_csv("Desktop/Buzzard2015_data.csv")
@@ -44,6 +45,7 @@ Summary<-Buzzard_clean2 %>%
 group_by(spcode)%>%
 summarize(mean_abund=mean(Abund.n, na.rm = TRUE))
 ```
+## ggplot
 ### plotting histograms with `ggplot`
 ```{R}
 ggplot(data=diff, aes(Abund.n))+
