@@ -30,9 +30,17 @@ myMuscleAlignment <- msa(Sequences, "Muscle",verbose=TRUE)
 ## View the alignments
 
 ```{R}
-print(myClustalWAlignment,show="complete")
-print(myMuscleAlignment,show="complete")
+print(myClustalWAlignment,show="complete",type="upperlower", thresh=c(50, 50))
+print(myMuscleAlignment,show="complete",type="upperlower", thresh=c(50, 50))
 ```
+
+## Save your alignment as a file
+```{BASH}
+sink("ClustalAlignment.aln")
+print(myClustalWAlignment,show="complete",type="upperlower", thresh=c(50, 50))
+sink()
+```
+
 
 ## Alternative ways of printing MSA
 It's possible to use a command in the msa package to print the MSA in pretty way that involves using a LaTeX compiler
