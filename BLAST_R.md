@@ -35,8 +35,11 @@ library(tidyverse)
 
 ## Download the data for today's activity
 
-Get the data from [here](https://raw.githubusercontent.com/stechtmann/BL2700/master/data/Oleispira_antarctica.fasta)
+Get the genome data to be used for the database from [here](https://raw.githubusercontent.com/stechtmann/BL2700/master/data/Oleispira_antarctica.fasta)
+Get the query data to search against the database from [here](https://raw.githubusercontent.com/stechtmann/BL2700/master/data/hydrocarbons.txt)
 
+## Set working directory
+Set your working directory to where the sequence files are. 
 
 ## Make a blastable database
 ```{R}
