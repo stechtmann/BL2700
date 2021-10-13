@@ -35,6 +35,9 @@ library(tidyverse)
 
 ## Download the data for today's activity
 
+Get the data from [here](https://raw.githubusercontent.com/stechtmann/BL2700/master/data/Oleispira_antarctica.fasta)
+
+
 ## Make a blastable database
 ```{R}
 makeblastdb("Oleispira_antarctica.fasta", dbtype="prot")
