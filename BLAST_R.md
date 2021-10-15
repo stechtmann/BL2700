@@ -21,6 +21,11 @@ You will need to tell R where the blast programs are
 ```{R}
 Sys.setenv(PATH = paste(Sys.getenv("PATH"), "PATH_TO/ncbi-blast-2.12.0+/bin/", sep= .Platform$path.sep))
 ```
+For example if you downloaded the blast files onto your Desktop your command would look like this
+
+```{R}
+Sys.setenv(PATH = paste(Sys.getenv("PATH"), "Desktop/ncbi-blast-2.12.0+/bin/", sep= .Platform$path.sep))
+```
 Check to see if you've install the BLAST programs correctly
 
 ```{R}
