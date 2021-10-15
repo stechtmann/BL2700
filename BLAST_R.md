@@ -38,10 +38,15 @@ library(rBLAST)
 library(tidyverse)
 ```
 
+## Background on today's activity.
+
+Bacteria can be used to help clean up oil spills.  These bacteria use the hydrocarbons in oil as a carbon and energy source.  They contain genes that allow them to metabolize these oil hydrocarbons.  An oil degrading isolate recently had its genome sequenced.  This organism is known as *Oleispira antartica* because it is an oil degrading spirillum (spiral shaped) bacteria that was isolated from Antarctica.  We are interested in testing the hypothesis that there are homologs of genes involved in oil biodegradation in the genome of *O. antarctica*.
+
 ## Download the data for today's activity
 
-Get the genome data to be used for the database from [here](https://raw.githubusercontent.com/stechtmann/BL2700/master/data/Oleispira_antarctica.fasta)
-Get the query data to search against the database from [here](https://raw.githubusercontent.com/stechtmann/BL2700/master/data/hydrocarbons.txt)
+Get the genome data to be used for the database from [here](https://raw.githubusercontent.com/stechtmann/BL2700/master/data/Oleispira_antarctica.fasta)  
+Get the query data to search against the database from [here](https://raw.githubusercontent.com/stechtmann/BL2700/master/data/hydrocarbons.txt)  
+
 
 ## Set working directory
 Set your working directory to where the sequence files are. 
