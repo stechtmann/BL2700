@@ -63,7 +63,7 @@ bs_nj <- bootstrap.phyDat(alkB_phyDat,bs=1000, fun)
 #### Plot bootstrapped tree
 
 ```{R}
-plotBS(mammals_NJ,type="phylogram", bs_nj, main="Neighbor Joining")
+plotBS(alkB_NJ,type="phylogram", bs_nj, main="Neighbor Joining")
 ```
 
 ## Perform Maximum Likelihood Phylogeny
