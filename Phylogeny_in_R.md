@@ -109,6 +109,7 @@ fit <- optim.pml(fitStart, rearrangement = "stochastic",
 ```{R}
 bs <- bootstrap.pml(fit, bs=100, optNni=TRUE, multicore=TRUE)
 ```
+If using a Windows computer remove `multicore=TRUE`
 
 ### Plot the boostrapped tree
 ```{R}
