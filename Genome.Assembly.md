@@ -2,7 +2,7 @@
 Use the quality filtered data from the quality filtering lab day.
 ### Navigate to your Genomics directory
 ```{BASH}
-cd data/Genomics
+cd data/In_class
 ```
 ### Make a new directory for your Assembly work
 ```{BASH}
@@ -25,12 +25,12 @@ Since these commands take time to run, we will use a command called `screen` whi
 
 ### Open a screen
 ```{BASH}
-screen -S reference
+screen -S de_novo
 ```
 You can then run the command that you want
 
 ```{BASH}
-conda activate assembly
+conda activate BL2700
 ```
 ### Detach from the screen
 To run other commands, you can then detach from the screen.
@@ -39,36 +39,10 @@ To detach from the screen you hold `ctrl` and `a` at the same time followed by `
 
 ### Reattach to the screen
 ```{BASH}
-screen -r reference
+screen -r de_novo
 ```
-
-## Reference based genome assembly
-
-### Get your reference
-```{BASH}
-efetch -id CP000141.1 -db sequences -format fasta > C.hydrogenoformansZ2901.fasta
-```
-
-### Generate index of the reference using bowtie
-```{BASH}
-bowtie2-build C.hydrogenoformansZ2901.fasta C.hydro
-```
-
-### Map the DSM reads to the reference
-```{BASH}
-bowtie2 -x C.hydro -1 Ch_pair_R1.fastq -2 Ch_pair_R2.fastq -S DSM.sam -X 1000
-```
-
-### Detach from the screen
-hold down `ctrl` and `a` followed by `d`
 
 ## De novo genome assembly
-
-### Open a new screen
-```{BASH}
-screen -S de_novo
-conda activate assembly
-```
 
 #### Perform SPAdes denovo assembly on Quality trimmed data
 ```{BASH}
