@@ -1,15 +1,24 @@
-## Install needed programs
-#### Download
+# Install needed programs
+## Prepare the package manager
+
+Log on to colossus
+
 ```{BASH}
-conda create -n assembly -c bioconda -c conda-forge sra-tools fastqc=0.11.5 \
+cd ~
+wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
+bash Miniconda3-latest-Linux-x86_64.sh
+```
+
+### Download the packages
+```{BASH}
+conda create -n BL2700 -c bioconda -c conda-forge sra-tools fastqc=0.11.5 \
              trimmomatic=0.36 spades=3.11.1 quast=5.0.2 \
              bowtie2=2.2.5 prokka java-jdk=8.0.112 --yes
 ```
-#### Download the file to retrieve your sequencing files from google drive
 
 #### Activate
 ```{BASH}
-conda activate assembly
+conda activate BL2700
 ```
 
 #### Download gdown
