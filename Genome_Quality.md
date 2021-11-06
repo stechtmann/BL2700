@@ -38,12 +38,30 @@ ln -s /scratch_30_day_tmp/yourusername/ data
 We are going to be downloading test data from the Short Read Archive (SRA). We are working with data from *Carboxydothermus hydrogenoformans*. *Carboxydothermus hydrogenoformans* is a thermophilic bacterium that is able generate energy from carbon monoxide (CO). It is also unclear if this organism has the ability to form spores as a form of surviving harsh conditions.  In this class we are going to sequence the genome to identify how many types of genes it has that are associated with carbon monoxide use and if there are genes associated with sporulation.
 
 #### Download raw fastq files
+
+Navigate to the scratch directory
 ```{BASH}
 cd data
-mkdir Genomics
-cd Genomics
+```
+Make a directory for In class activity
+```{BASH}
+mkdir In_class
+```
+Navigate into the `In_class` directory
+
+```{BASH}
+cd In_class
+```
+Make a directory for your quality assessement
+```{BASH}
 mkdir Quality
+```
+Navigate into that directory
+```{BASH}
 cd Quality
+```
+Download the data
+```{BASH}
 gdown https://drive.google.com/uc?id=17GXqsTYY7JGi92Ijuz5qGELdMJaGMYgK
 gdown https://drive.google.com/uc?id=1YnsR_zdZ9aqkIaODCk242hXdiz82RWyK
 ```
@@ -70,11 +88,11 @@ Open Filezilla
 
 Activate your environment
 ```{BASH}
-conda activate assembly
+conda activate BL2700
 ```
 Navigate to your data
 ```{BASH}
-cd data/Genomics/Quality
+cd data/In_class/Quality
 ```
 
 ## Trim low quality reads
