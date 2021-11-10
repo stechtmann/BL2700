@@ -21,11 +21,6 @@ conda create -n BL2700 -c bioconda -c conda-forge sra-tools fastqc=0.11.5 \
 conda activate BL2700
 ```
 
-#### Download gdown
-```{BASH}
-pip install gdown
-```
-
 ## Set up files
 
 #### Symbolic link to the scratch space on colossus
@@ -61,10 +56,12 @@ Navigate into that directory
 cd Quality
 ```
 Download the data
-```{BASH}
-gdown https://drive.google.com/uc?id=17GXqsTYY7JGi92Ijuz5qGELdMJaGMYgK
-gdown https://drive.google.com/uc?id=1YnsR_zdZ9aqkIaODCk242hXdiz82RWyK
-```
+
+Download the following files and upload to your data directory using WinSCP or FileZilla
+
+https://drive.google.com/uc?id=17GXqsTYY7JGi92Ijuz5qGELdMJaGMYgK
+https://drive.google.com/uc?id=1YnsR_zdZ9aqkIaODCk242hXdiz82RWyK
+
 
 ## Assess the quality of the raw reads
 
@@ -78,7 +75,6 @@ fastqc C.hydro_DSMZ_R2.fastq.gz
 
 ## Check the fastqc output using filezilla or WinSCP
 You will need to open WinSCP and either transfer the files to your desktop or click on the .html file then view/edit
-
 
 # Start of second day
 
