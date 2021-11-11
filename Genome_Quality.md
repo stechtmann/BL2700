@@ -15,7 +15,7 @@ conda create -n BL2700 -c bioconda -c conda-forge fastqc
 conda install --name BL2700 -c bioconda -c conda-forge quast=5.0.2
 conda install --name BL2700 -c bioconda -c conda-forge trimmomatic
 conda install --name BL2700 -c bioconda -c conda-forge spades
-conda install --name BL2700 -c conda-forge -c bioconda -c defaults prokka
+conda install --name BL2700 -c conda-forge -c bioconda -c defaults prokka>=1.14
 ```
 #### Activate
 ```{BASH}
