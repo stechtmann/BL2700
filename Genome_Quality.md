@@ -11,11 +11,12 @@ bash Miniconda3-latest-Linux-x86_64.sh
 
 ### Download the packages
 ```{BASH}
-conda create -n BL2700 -c bioconda -c conda-forge sra-tools fastqc=0.11.5 \
-             trimmomatic=0.36 spades=3.11.1 quast=5.0.2 \
-             bowtie2=2.2.5 prokka java-jdk=8.0.112 --yes
+conda create -n BL2700 -c bioconda -c conda-forge fastqc 
+conda install --name BL2700 -c bioconda -c conda-forge quast=5.0.2
+conda install --name BL2700 -c bioconda -c conda-forge trimmomatic
+conda install --name BL2700 -c bioconda -c conda-forge spades
+conda install --name BL2700 -c bioconda -c conda-forge prokka
 ```
-
 #### Activate
 ```{BASH}
 conda activate BL2700
