@@ -17,18 +17,22 @@ conda install --name BL2700 -c bioconda -c conda-forge trimmomatic
 conda install --name BL2700 -c bioconda -c conda-forge spades
 conda install --name BL2700 -c conda-forge -c bioconda -c defaults prokka=1.14.6
 ```
-#### Activate
-```{BASH}
-conda activate BL2700
-```
 
 ## Download the data
 1. Open up FileZilla/WinSCP
 2. Download the R1 file https://drive.google.com/uc?id=17GXqsTYY7JGi92Ijuz5qGELdMJaGMYgK  
 3. Download the R2 file https://drive.google.com/uc?id=1YnsR_zdZ9aqkIaODCk242hXdiz82RWyK
 
-## Set up directories on Colossus.
+# Start of second day
 
+## Log in and activate your environment
+Log into colossus.
+Open Filezilla
+
+Activate your environment
+```{BASH}
+conda activate BL2700
+```
 ### Symbolic link to the scratch space on colossus
 The size of the data files that we are using for the rest of the class are very large.  Because the amount of storage that we can us is limited, we are going to use a portion of colossus that has no limit on the amount of storage that is available. 
 To more easly access this portion of colossus we will set up something called a symbolic link.  A symbolic link looks and appears as a normal directory or file, but refers to a directory/file somehwere else on the computer.  This is simlar to a short cut that may exist on your windows desktop
@@ -36,35 +40,10 @@ To more easly access this portion of colossus we will set up something called a 
 ln -s /scratch_30_day_tmp/yourusername/ data
 ```
 
-We are going to be downloading test data from the Short Read Archive (SRA). We are working with data from *Carboxydothermus hydrogenoformans*. *Carboxydothermus hydrogenoformans* is a thermophilic bacterium that is able generate energy from carbon monoxide (CO). It is also unclear if this organism has the ability to form spores as a form of surviving harsh conditions.  In this class we are going to sequence the genome to identify how many types of genes it has that are associated with carbon monoxide use and if there are genes associated with sporulation.
-
-### Prepare the directories for this activity
-
-Navigate to the scratch directory
+Navigate to your data
 ```{BASH}
-cd data
+cd data/BL2700/In_class/
 ```
-Make a directory for In class activity
-```{BASH}
-mkdir In_class
-```
-Navigate into the `In_class` directory
-
-```{BASH}
-cd In_class
-```
-Make a directory for your quality assessement
-```{BASH}
-mkdir Quality
-```
-Navigate into that directory
-```{BASH}
-cd Quality
-```
-
-### Upload sequencing reads
-
-Upload your sequencing reads (R1 and R2) into the `Quality` directory using WinSCP/FileZilla   
 
 ## Assess the quality of the raw reads
 
