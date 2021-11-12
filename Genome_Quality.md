@@ -72,7 +72,12 @@ Navigate to your data
 ```{BASH}
 cd data/In_class/Quality
 ```
+## Check the quality of your reads with fastqc
 
+```{BASH}
+fastqc C.hydro_DSMZ_R1.fastq.gz 
+fastqc C.hydro_DSMZ_R2.fastq.gz
+```
 ## Trim low quality reads
 
 To trim low quality reads we're going to use a sliding window trimmer known as trimmomatic.
