@@ -58,26 +58,7 @@ fastqc C.hydro_DSMZ_R2.fastq.gz
 ## Check the fastqc output using filezilla or WinSCP
 You will need to open WinSCP and either transfer the files to your desktop or click on the .html file then view/edit
 
-# Start of second day
 
-## Log in and activate your environment
-Log into colossus.
-Open Filezilla
-
-Activate your environment
-```{BASH}
-conda activate BL2700
-```
-Navigate to your data
-```{BASH}
-cd data/In_class/Quality
-```
-## Check the quality of your reads with fastqc
-
-```{BASH}
-fastqc C.hydro_DSMZ_R1.fastq.gz 
-fastqc C.hydro_DSMZ_R2.fastq.gz
-```
 ## Trim low quality reads
 
 To trim low quality reads we're going to use a sliding window trimmer known as trimmomatic.
