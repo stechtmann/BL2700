@@ -1,8 +1,8 @@
 ## Perform Annotation on the de novo assembled genome
 ### Prepare your environment
 ```{BASH}
-conda activate assembly
-cd data/Genomics/
+conda activate BL2700
+cd data/
 mkdir Annotation
 cp Assembly/Ch_DSM_spades_output/contigs.fasta Annotation/
 cd Annotation  
