@@ -2,7 +2,7 @@
 Use the quality filtered data from the quality filtering lab day.
 ### Navigate to your Genomics directory
 ```{BASH}
-cd data/In_class
+cd data/
 ```
 ### Make a new directory for your Assembly work
 ```{BASH}
