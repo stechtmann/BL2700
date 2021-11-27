@@ -41,8 +41,9 @@ blastp -db Uniprot_db -query Ch_DSM.faa -out Ch_DSM_BLAST.txt -evalue 1e-30 -qco
 
 ### Make the HMM using `hmmbuild`
 ```{BASH}
-hmmbuild CooS.hmm CooS_aminoacids.aln
+hmmbuild CooS.hmm CooS_BL2700.aln
 ```
+
 ## Search the `.faa` file with the HMM using `hmmsearch`
 ```{BASH}
 hmmsearch CooS.hmm Ch_DSM.faa > CooS_Ch_DSM.out
