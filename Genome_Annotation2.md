@@ -63,14 +63,14 @@ This command is performing the following function.
 
 ## Run the prokka pipeline on the `contigs_names.fasta` file.
 ```{BASH}
-prokka --outdir Ch_DSM --prefix Ch_DSM --locustag Ch_DSM contigs_names.fasta
+prokka --outdir Ch_DSM_prokka --prefix Ch_DSM --locustag Ch_DSM contigs_names.fasta
 ```
 
 ## Take a look at the data from the output.
 
 ### Navigate into the output directory
 ```{BASH}
-cd Ch_DSM
+cd Ch_DSM_prokka
 ```
 ### Look at `.txt` file.
 This file lists some of the key elements and how many of each of those elements are in this genome.
