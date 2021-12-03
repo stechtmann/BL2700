@@ -39,6 +39,9 @@ blastp -db Uniprot_db -query Ch_DSM.faa -out Ch_DSM_BLAST.txt -evalue 1e-30 -qco
 
 ### Download the multiple sequence alignment
 
+```{BASH}
+wget https://raw.githubusercontent.com/stechtmann/BL2700/master/data/CooS_aminoacids.aln
+```
 ### Make the HMM using `hmmbuild`
 ```{BASH}
 hmmbuild CooS.hmm CooS_BL2700.aln
