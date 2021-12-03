@@ -1,4 +1,11 @@
 # Data to be used
+Here's some text about the codes
+
+```{R}
+test<-read_csv("xxx.csv")
+```
+
+
 
 ```{BASH}
 cd ~/data
