@@ -40,6 +40,7 @@ Read your data in to your R environment.
 - Set working directory
 - Choose Directory
 
+## Read in data into your environment
 ```{R}
 counts<-readRDS("seqtab.nochim.rds")
 metadata<-read_csv("samples.transit.csv")
