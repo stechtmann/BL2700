@@ -18,8 +18,9 @@ BiocManager::install("phyloseq")
 
 You will need to download the following data items.
 
-Count table -
-Metadata table -
+Count table - https://github.com/stechtmann/BL2700/raw/master/data/seqtab.nochim.rds
+Metadata table - https://raw.githubusercontent.com/stechtmann/BL2700/master/data/samples.transit.csv
+Taxa table - https://github.com/stechtmann/BL2700/raw/master/data/taxa.rds
 
 # Intialize environment 
 
@@ -34,12 +35,15 @@ library(phyloseq)
 # Read data into your environment
 Read your data in to your R environment.
 
-**Laura I don't know if your data is all in csvs this is just a guess**
+## Set your working director to the directory where the data is found.
+- Session
+- Set working directory
+- Choose Directory
 
 ```{R}
-counts<-read_csv("counts.csv")
-metadata<-read_csv("metadata.csv")
-taxa<-read_csv("taxa.csv")
+counts<-readRDS("seqtab.nochim.rds")
+metadata<-read_csv("samples.transit.csv")
+taxa<-read_csv("taxa.rds")
 ```
 
 # Laura Add next steps
