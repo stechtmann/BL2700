@@ -9,8 +9,8 @@ Open up RStudio and make a new script for this work.
 Make sure to install the following packages prior to class on Wed Dec. 8
 
 ```{R}
-install.packages(csv)
-install.packages(vegan)
+install.packages("csv")
+install.packages("vegan")
 BiocManager::install("phyloseq")
 ```
 
