@@ -232,7 +232,7 @@ phylum_colors <- c(
   "#8569D5", "#5E738F","#D1A33D", "#8A7C64", "#599861"
 )
 
-#5) Create taxa plot!
+#Create taxa plot!
 ggplot(all)+
   geom_col(mapping = aes(x = Substrate, y = avg_abundance, fill = Phylum), position = "fill", show.legend = TRUE, color = "black")+
   #facet_grid(rows = vars(Environment), cols = vars(Transfer))+
