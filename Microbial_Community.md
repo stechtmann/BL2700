@@ -43,29 +43,55 @@ Read your data in to your R environment.
 ## Read in data into your environment
 ```{R}
 counts<-readRDS("seqtab.nochim.rds")
-metadata<-read_csv("samples.transit.csv")
+metadata<-read_csv("cb_metadata4.csv")
 taxa<-read_csv("taxa.rds")
 ```
 
-# Remove column names from the sequence table and convert to data frame
+# Prepare data for phyloseq
+
+## metadata
 ```{R}
-colnames(counts) <- NULL
-sequence_table <- as.data.frame(counts)
+head(metadata)
+metadata2 <- metadata %>%
+  mutate(SampleID = sampleid) %>%
+  column_to_rownames(var = "sampleid") 
+head(metadata2)
 ```
 
-# Look at dimensions of metadata, sequence table, and taxa table
+## sequence table
 ```{R}
-dim(metadata)
-dim(sequence_table)
+counts[1:5,1:5]
+colnames(counts) <- NULL
+counts2 <- as.matrix(counts)
+counts2[1:5,1:5]
+```
+
+## taxa table
+```{R}
+taxa_table[1:5,1:5]
+taxa_t<-t(taxa)
+colnames(taxa_t) <- NULL
+taxa_table<-t(taxa_t)
+taxa_table <- as.matrix(taxa_table)
+taxa_table[1:5,1:5]
+```
+
+# Make sure data dimensions match up
+```{R}
+dim(metadata2)
+dim(counts2)
 dim(taxa)
+```
+
+# Format data for phyloseq
+```{R}
+samdata = sample_data(metadata2)
+seqtab = otu_table(counts2, taxa_are_rows = FALSE)
+taxtab = tax_table(taxa_table)
 ```
 
 # Make the phyloseq object
 ```{R}
-samdata = sample_data(sdata2)
-seqtab = otu_table(subset_all, taxa_are_rows = FALSE)
-taxtab = tax_table(taxa)
-
 ps = phyloseq(otu_table(seqtab), tax_table(taxtab), sample_data(samdata))
 ps
 ```
@@ -92,86 +118,81 @@ count_samples1 <- sample_data(pps) %>%
 View(count_samples1)
 ```
 
-# Make a vector of colors
+# Let's compare the microbial community of the bilge water and the bilge biofilm of the boat
+
+## subset the phyloseq object
 ```{R}
-sample_colors <- c(
-  "#CBD588", "#5F7FC7", "orange","#DA5724", "#508578", "#CD9BCD",
-  "#AD6F3B", "yellow","#D14285", "#652926", "#C84248", "blue",
-  "#8569D5", "#5E738F","#D1A33D", "#8A7C64", "#599861", "#CBD588", "#5F7FC7", "orange","#DA5724", "#508578", "#CD9BCD",
-  "#AD6F3B", "#673770","#D14285", "#652926", "#C84248", 
-  "#8569D5", "#5E738F","#D1A33D", "#8A7C64", "#599861"
-)
+sub_ps <- subset_samples(pps, swab_type == "bilgewater"|swab_type == "bilgebiofilm")
+sub_ps
+```
+
+# Save a vector of colors
+```{R}
+sample_colors <- c("#CBD588", "#5F7FC7")
 ```
 
 # Make a violin plot of alpha diversity
 ```{R}
-pps %>%                                                              #phyloseq object
+sub_ps %>%                                                              #phyloseq object
   plot_richness(
-    x = "Substrate",                                                #compare diversity of datatype
-    measures = c("Observed", "Shannon")) +                           #choose diversity measures
-  geom_violin(aes(fill = Substrate), show.legend = FALSE)+          #make violin plot, set fill aes to sampletype
-  geom_boxplot(width=0.1) +                                          #add boxplot, set width
-  theme_classic()+                                                   #change theme to classic
-  xlab(NULL)+                                                        #no label on x-axis
-  theme(axis.text.y.left = element_text(size = 20),                  #adjust y-axis text
-        axis.text.x = element_text(size = 20, hjust = 1, vjust = 0.5, angle = 90),           #adjust x-axis label position
-        axis.title.y = element_text(size = 20))+                     #adjust y-axis title
-  theme(strip.text = element_text(face = "bold", size = 25))+        #adjust headings
-  scale_fill_manual(values = sample_colors)+   #set fill colors
-  # scale_x_discrete(                                                  #change x-axis labels
-  # breaks = sample_types)+                   
-  ggtitle("Alpha Diversity") +                                       #add title
+    x = "swab_type",                                                    #compare diversity of datatype
+    measures = c("Observed")) +                                         #choose diversity measures
+  geom_violin(aes(fill = swab_type), show.legend = FALSE)+              #make violin plot, set fill aes to sampletype
+  geom_boxplot(width=0.1) +                                             #add boxplot, set width
+  theme_classic()+                                                      #change theme to classic
+  scale_fill_manual(values = sample_colors)+                            #set fill colors
+  ggtitle("Alpha Diversity") +                                          #add title
   theme(plot.title=element_text(size = 25, face = "bold", hjust = 0.5)) #change title size, face and position
+```
+# Alpha diversity statistics
 
+## create data frame for statistics
+```{R}
+richness <- sub_ps %>%
+  estimate_richness(measures = c("Observed")) %>%           #specify which measures
+  rownames_to_column(var = "SampleID") %>%                  #add column name to SampleID column
+  left_join(metadata2, by = "SampleID")
+head(richness)
+```
+## perform Kruskal Wallis test
+```{R}
+kruskal.test(Observed ~ swab_type, data = richness) 
 ```
 
+
 # Make a PCoA Plot
+
+## make ordination
 ```{R}
-#ordination
-all_pcoa <- ordinate(
-  physeq = pps, 
+ord <- ordinate(
+  physeq = sub_ps, 
   method = "PCoA", 
   distance = "bray"
 )
-
-head(sdata)
-
-sample_colors <- c(
-  "black",   "darkcyan",     "orchid1",   "green",       "coral1",            "blue",
-  "grey47",  "cyan",         "yellow",    "darkgreen",   "palegoldenrod",     "tan4",
-  "grey77",  "darkblue",     "red",         "mediumpurple1",     "purple4",
-  "white",   "dodgerblue",   "firebrick", "yellowgreen", "magenta", "#5F7FC7", "orange","#DA5724", "#508578", "#CD9BCD",
-  "#D14285", "#652926", "#C84248", "blue",
-  "#8569D5", "#5E738F","#D1A33D", "#8A7C64", "#599861", "#CBD588", "#5F7FC7","#DA5724", "#508578", "#CD9BCD",
-  "#AD6F3B", "#673770","#D14285", "#652926", "#C84248", 
-  "#8569D5", "#5E738F","#D1A33D", "#8A7C64", "#599861"
-) 
-
-#plot
-plot_ordination(
-  physeq = pps,                                                         #phyloseq object
-  ordination = all_pcoa)+                                                #ordination
-  geom_point(aes(fill = Substrate), size = 5, shape = 21) +     #sets fill color to sampletype
-  #scale_shape_manual(values = c(21, 22, 23, 24, 25))+
-  scale_fill_manual(values = sample_colors) +
-  theme_classic() +                                                      #changes theme, removes grey background
-  theme(                             
-    legend.text = element_text(size = 20),                               #changes legend size
-    legend.title = element_blank(),                                      #removes legend title
-    legend.background = element_rect(fill = "white", color = "black"))+  #adds black boarder around legend
-  theme(axis.text.y.left = element_text(size = 20),
-        axis.text.x = element_text(size = 20),
-        axis.title.x = element_text(size = 20),
-        axis.title.y = element_text(size = 20))+
-  guides(fill = guide_legend(override.aes = list(shape = 21)))           #fills legend points based on the fill command
-
 ```
+# Make the plot
+```{R}
+plot_ordination(
+  physeq = sub_ps,                                                  #phyloseq object
+  ordination = ord)+                                                #ordination
+  geom_point(aes(fill = swab_type), size = 5, shape = 21) +         #sets fill color to sampletype
+  scale_fill_manual(values = sample_colors) +                       #specify colors
+  theme_classic()                                                   #changes theme, removes grey background
+```
+
+# PERMANOVA
+```{R}
+bray <- phyloseq::distance(sub_ps, method = "bray")
+sam <- data.frame(sample_data(sub_ps))
+adonis2(bray ~ swab_type, data = sam)
+```
+
 
 # Make a taxa plot
 
 ## Remove mitochondria and chloroplasts from the data set
 ```{R}
-justbacteria <- pps %>%
+justbacteria <- sub_ps %>%
   subset_taxa(
     Kingdom == "Bacteria" &                   #only bacteria
       Family  != "mitochondria" &             #filter out mitochondria
@@ -192,24 +213,26 @@ head(phylumabundance)
 
 ## Summarize the most abundant taxa
 ```{R}
-all <- phylumabundance %>%
-  select(Phylum, Abundance, Stream, EcoRegion, Substrate) %>%
-  group_by(Phylum, Substrate) %>%
-  summarize(
+taxa_plot_data <- phylumabundance %>%
+  dplyr::select(Phylum, Abundance, swab_type) %>%
+  group_by(Phylum, swab_type) %>%
+  summarise(
     avg_abundance = mean(Abundance)
   ) %>%
   mutate(
     Phylum = as.character(Phylum),
     Phylum = ifelse(avg_abundance < 0.02, "< 2 %", Phylum)
   ) %>%
-  group_by(Phylum, Substrate) %>%
-  summarize(
+  group_by(Phylum, swab_type) %>%
+  summarise(
     avg_abundance = sum(avg_abundance)
   )
-head(all)
+head(taxa_plot_data)
 ```
 
 ## Make the plot
+
+## save a vector of colors
 ```{R}
 phylum_colors <- c(
   "#CBD588", "#5F7FC7", "orange","#DA5724", "#508578", "#CD9BCD",
@@ -231,18 +254,13 @@ phylum_colors <- c(
   "#AD6F3B", "#673770","#D14285", "#652926", "#C84248", 
   "#8569D5", "#5E738F","#D1A33D", "#8A7C64", "#599861"
 )
+```
 
-#Create taxa plot!
-ggplot(all)+
-  geom_col(mapping = aes(x = Substrate, y = avg_abundance, fill = Phylum), position = "fill", show.legend = TRUE, color = "black")+
-  #facet_grid(rows = vars(Environment), cols = vars(Transfer))+
+## make the plot
+```{R}
+ggplot(taxa_plot_data)+
+  geom_col(mapping = aes(x = swab_type, y = avg_abundance, fill = Phylum), position = "fill", show.legend = TRUE, color = "black")+
   ylab("Proportion of Community") +
   scale_fill_manual(values = phylum_colors) +
-  xlab(NULL)+
-  theme_minimal()+
-  theme(axis.text.y.left = element_text(size = 12),
-        axis.text.x = element_text(size = 12, angle = 90, vjust = 0.5, hjust = 1),
-        axis.title.y = element_text(size = 12),
-        title = element_text(size = 25))
-
+  theme_minimal()
 ```
