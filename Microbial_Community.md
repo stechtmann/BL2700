@@ -19,7 +19,7 @@ BiocManager::install("phyloseq")
 You will need to download the following data items.
 
 Count table - https://github.com/stechtmann/BL2700/raw/master/data/seqtab.nochim.rds
-Metadata table - https://raw.githubusercontent.com/stechtmann/BL2700/master/data/samples.transit.csv
+Metadata table - https://raw.githubusercontent.com/stechtmann/BL2700/master/data/cb_metadata4.csv
 Taxa table - https://github.com/stechtmann/BL2700/raw/master/data/taxa.rds
 
 # Intialize environment 
