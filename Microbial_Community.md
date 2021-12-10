@@ -144,7 +144,7 @@ sub_ps
 # Alpha Diversity
 Alpha diversity is a method of measuring how many different organisms we have in a sample. The more different types of organisms we have, the higher the alpha diversity. Consider an example where we think about students' names instead of organisms:
 
-For example: A class has two groups of students working each working on a group project. Group 1 has five students and their names are: Bill, Ashley, Sophia, Mike, and Cody. Group 2 also have five students and their names are: Bob, Mary, Cody, Cody, and Cody. In this example, Group 1 has higher alpha diversity since we have 5 different names, compared to Group 2 where there are only 3 different names present.
+For example: A class has two groups of students working each working on a group project. Group 1 has five students and their names are: Bill, Ashley, Sophia, Mike, and Cody. Group 2 also have five students and their names are: Bob, Mary, Cody, Cody, and Cody. In this example, Group 1 has higher diversity since we have 5 different names, compared to Group 2 where there are only 3 different names present.
 
 There are many different metrics for measuring alpha diversity. In this example so far we have only considered "richness" (number of different species). Many alpha diversity metrics also consider "evenness" (the proportion of the total community made up by each species).
 
@@ -191,11 +191,15 @@ kruskal.test(Observed ~ swab_type, data = richness)
 Beta diversity is a metric for determining how similar communities are to one another. Instead of assessing the diversity in one sample at a time, we consider how similar the organisms in one community are to another community. Alpha diversity is often called "within sample diversity" and Beta diversity is called "between sample diversity". We do this by estimating the "distance" between communities (or samples). 
 
 Consider the groups from the example above. How similar do you think these "communities" are?
+
 Group 1: Bill, Ashley, Sophia, Mike, and Cody
+
 Group 2: Bob, Mary, Cody, Cody, and Cody
 
 Now consider a third group:
+
 Group 3: Sophia, Sophia, Mike, Bill, and Mary
+
 Do you think Group 1 or Group 2 is more similar to this third group?
 
 # Make a PCoA Plot
