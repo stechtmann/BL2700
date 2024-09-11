@@ -1,10 +1,10 @@
 # Install tidyverse
-```{R}
+```R
 install.packages("tidyverse")
 ```
 
 ## Start tidyverse
-```{R}
+```R
 library(tidyverse)
 ```
 
@@ -21,15 +21,15 @@ We could use the `read.csv` function that is base R that we discussed on Wednesd
 
 We're going to import our data in a tidy manner using the `read_csv` function in tidyverse
 
-```{R}
+```R
 Buzzard<-read_csv("Desktop/Buzzard2015_data.csv")
 ```
 
 ### Clean up the data.
 
-#### Select that data to use
+#### Select the data to use
 
-The data has many more columns than we need to use.  We are only interested in the following information.
+The data has many more columns than we need to use.  We are only interested in the following information:
 1. age
 1. plot
 1. genus
@@ -43,7 +43,7 @@ All of the other columns we don't need.
 
 We are going to use the `select` funtion to only select the columns that we want.
 
-```{R}
+```R
 Buzzard_clean<-select(Buzzard, age, plot, genus, species, spcode, Abund.n, biomass, basal.area)
 ```
 
@@ -53,14 +53,14 @@ The `filter` function in `dplyr` as part of `tidyverse` is similar to subset com
 
 Let's keep all of the rows that match the species code - Byrcra
 
-```{R}
+```R
 filter(Buzzard_clean, spcode=="Byrcra")
 ```
 We can also use logical statements to keep values that match one thing or another.  The "or" symbol is `|`  The "and" symbol is `&`.
 
 Let's keep all of the rows from the following three species codes: Byrcra, roumon, and agomac
 
-```{R}
+```R
 filter(Buzzard_clean, spcode=="Byrcra"|spcode=="roumon"|spcode=="agomac")
 ```
 ### `mutate`
@@ -69,7 +69,7 @@ The mutate function will create a new column and populate it with a particular o
 
 Let's create a column called `days` that converts the `age` column which is in years by multiplying the age column by 365
 
-```{R}
+```R
 Buzzard_clean2 <- mutate(Buzzard_clean, days = (age*365))
 ```
 
@@ -77,13 +77,13 @@ Buzzard_clean2 <- mutate(Buzzard_clean, days = (age*365))
 
 The `group_by` and `summarize` commands allow for summarizing statistics about the different groups in the dataset.
 
-These two commands are often run in series and piped together to create a pipeline.  The pipe symbol (`%>%`) connects two tidy verse functions
+These two commands are often run in series and piped together to create a pipeline.  The pipe symbol (`%>%`) connects two tidy verse functions. It does this by sending the results from the left function (or object) into the first argument of the function on the right of the pipe.
 
 
 Let's calculate the mean abundance of all of the species in the data set by grouping the entries by the `spcode` and summarize by calculating the `mean` of the `Abund.n` column
 
 
-```{R}
+```R
 Summary<-Buzzard_clean2 %>%
 group_by(spcode)%>%
 summarize(mean_abund=mean(Abund.n, na.rm = TRUE))
@@ -91,7 +91,7 @@ summarize(mean_abund=mean(Abund.n, na.rm = TRUE))
 
 You can also summarize multiple columns as the same time
 
-```{R}
+```R
 Summary<-Buzzard_clean2 %>%
 group_by(spcode)%>%
 summarize(mean_abund=mean(Abund.n, na.rm = TRUE),
@@ -106,14 +106,14 @@ sd_area=sd(basal.area, na.rm = TRUE))
 ### `arrange`
 To make displaying your data simpler, the `arrange` command can be used to order your data.
 
-```{R}
+```R
 Buzzard_clean2 %>%
 group_by(spcode)%>%
 summarize(mean_abund=mean(Abund.n, na.rm = TRUE))%>
 arrange(mean_abund)
 ```
-This orders the data by lowest to highest (ascending).  To order your data in a descending manner you can use `desc()
-```{R}
+This orders the data by lowest to highest (ascending).  To order your data in a descending manner you can use `desc()`
+```R
 Buzzard_clean2 %>%
 group_by(spcode)%>%
 summarize(mean_abund=mean(Abund.n, na.rm = TRUE))%>
